@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaDeGestion.models;
+using SistemaDeGestion.service;
 
 namespace SistemaGestionApp.formularios
 {
@@ -16,17 +18,19 @@ namespace SistemaGestionApp.formularios
         {
             InitializeComponent();
         }
-        private void frmVenta_Load(object sender, EventArgs e)
+        private async void frmVenta_Load(object sender, EventArgs e)
         {
             lblTitulo.Text = "LISTADO DE VENTAS";
-      //      obtenerDatos();
+            await Task.Delay(500);
+            obtenerDatos();
+            
         }
-     /*   public void obtenerDatos()
+        public void obtenerDatos()
         {
             try
             {
                 dataGridView1.DataSource = null;
-                List<modelo.clsVenta> lstVentas = VentaData.ListarVentas();
+                List<Ventum> lstVentas = VentaService.GetVentas();
                 dataGridView1.DataSource = lstVentas;
                 dataGridView1.AutoGenerateColumns = true;
             }
@@ -54,7 +58,7 @@ namespace SistemaGestionApp.formularios
                 else
                 {
                     int id = int.Parse(txtID.Text);
-                    modelo.clsVenta VentaObtenido = VentaData.ObtenerVentaPorId(@id);
+                    Ventum VentaObtenido = VentaService.GetVenta(@id);
                     txtComentarios.Text = VentaObtenido.Comentarios.ToString();
                     txtIdUsuario.Text = VentaObtenido.IdUsuario.ToString();
                 }
@@ -73,7 +77,7 @@ namespace SistemaGestionApp.formularios
                 {
                     int id = int.Parse(txtID.Text);
 
-                    if (VentaData.BorraVentaPorId(@id))
+                    if (VentaService.EliminarVentaPorId(@id))
                     {
                         limpiarDatos();
                         obtenerDatos();
@@ -102,11 +106,12 @@ namespace SistemaGestionApp.formularios
                 if (confirmacion == DialogResult.Yes)
                 {
                     int id = int.Parse(txtID.Text);
-                    modelo.clsVenta VentaActualizar = new(
-                       txtComentarios.Text,
-                       int.Parse(txtIdUsuario.Text)
-                    );
-                    if (VentaData.UpdateVentaPorId(@id, VentaActualizar))
+                    Ventum VentaActualizar = new Ventum
+                    {
+                        Comentarios = txtComentarios.Text,
+                        IdUsuario = int.Parse(txtIdUsuario.Text)
+                    };
+                    if (VentaService.ActualizarVentaXId(VentaActualizar,@id))
                     {
                         obtenerDatos();
                         limpiarDatos();
@@ -142,12 +147,11 @@ namespace SistemaGestionApp.formularios
         {
             try
             {
-                modelo.clsVenta VentaNueva = new(
-                   (txtComentarios.Text),
-                   int.Parse(txtIdUsuario.Text)
-
-                );
-                if (VentaData.AgregarVenta(VentaNueva))
+                Ventum VentaNueva = new Ventum{
+                    Comentarios=txtComentarios.Text,
+                    IdUsuario=int.Parse(txtIdUsuario.Text)
+                };
+                if (VentaService.AgregarVenta(VentaNueva))
                 {
                     obtenerDatos();
                     limpiarDatos();
@@ -186,6 +190,5 @@ namespace SistemaGestionApp.formularios
                 SelectNextControl((Control)sender, true, true, true, true);
             }
         }
-     */
     }
 }

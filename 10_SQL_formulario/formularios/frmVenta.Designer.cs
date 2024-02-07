@@ -91,7 +91,7 @@
             btnBorrarVentaxID.TabIndex = 9;
             btnBorrarVentaxID.Text = "Borrar Venta";
             btnBorrarVentaxID.UseVisualStyleBackColor = false;
-     //       btnBorrarVentaxID.Click += btnBorrarVentaxID_Click;
+            btnBorrarVentaxID.Click += btnBorrarVentaxID_Click;
             // 
             // panel4
             // 
@@ -133,7 +133,7 @@
             txtComentarios.Name = "txtComentarios";
             txtComentarios.Size = new Size(512, 23);
             txtComentarios.TabIndex = 1;
-      //      txtComentarios.KeyDown += txtID_KeyDown;
+            txtComentarios.KeyDown += txtID_KeyDown;
             // 
             // txtIdUsuario
             // 
@@ -141,7 +141,7 @@
             txtIdUsuario.Name = "txtIdUsuario";
             txtIdUsuario.Size = new Size(106, 23);
             txtIdUsuario.TabIndex = 2;
-       //     txtIdUsuario.KeyDown += txtAgregar_KeyDown;
+            txtIdUsuario.KeyDown += txtAgregar_KeyDown;
             // 
             // lblId
             // 
@@ -166,7 +166,7 @@
             btnLimpiarDatos.TabIndex = 10;
             btnLimpiarDatos.Text = "Limpiar Datos";
             btnLimpiarDatos.UseVisualStyleBackColor = false;
-      //      btnLimpiarDatos.Click += btnLimpiarDatos_Click;
+            btnLimpiarDatos.Click += btnLimpiarDatos_Click;
             // 
             // txtID
             // 
@@ -174,7 +174,7 @@
             txtID.Name = "txtID";
             txtID.Size = new Size(100, 23);
             txtID.TabIndex = 0;
-       //     txtID.KeyDown += txtID_KeyDown;
+            txtID.KeyDown += txtID_KeyDown;
             // 
             // btnAgregarVenta
             // 
@@ -189,7 +189,7 @@
             btnAgregarVenta.TabIndex = 7;
             btnAgregarVenta.Text = "Agregar";
             btnAgregarVenta.UseVisualStyleBackColor = false;
-     //       btnAgregarVenta.Click += btnAgregarVenta_Click;
+            btnAgregarVenta.Click += btnAgregarVenta_Click;
             // 
             // btnActualizaVentaxID
             // 
@@ -204,7 +204,7 @@
             btnActualizaVentaxID.TabIndex = 8;
             btnActualizaVentaxID.Text = "Actualizar Producto";
             btnActualizaVentaxID.UseVisualStyleBackColor = false;
-      //      btnActualizaVentaxID.Click += btnActualizaVentaxID_Click;
+            btnActualizaVentaxID.Click += btnActualizaVentaxID_Click;
             // 
             // panel3
             // 
@@ -232,7 +232,7 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(650, 235);
             dataGridView1.TabIndex = 0;
-      //      dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // btnClose
             // 
@@ -249,7 +249,7 @@
             btnClose.TabIndex = 11;
             btnClose.Text = "X";
             btnClose.UseVisualStyleBackColor = true;
-     //       btnClose.Click += btnClose_Click;
+            btnClose.Click += btnClose_Click;
             // 
             // btnBuscarVentaXiD
             // 
@@ -264,7 +264,7 @@
             btnBuscarVentaXiD.TabIndex = 6;
             btnBuscarVentaXiD.Text = "Buscar X ID";
             btnBuscarVentaXiD.UseVisualStyleBackColor = false;
-     //       btnBuscarVentaXiD.Click += btnBuscarVentaxID_Click;
+            btnBuscarVentaXiD.Click += btnBuscarVentaxID_Click;
             // 
             // lblTitulo
             // 

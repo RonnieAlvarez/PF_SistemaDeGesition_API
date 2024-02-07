@@ -93,7 +93,7 @@
             btnBorrarProductoxID.TabIndex = 9;
             btnBorrarProductoxID.Text = "Borrar Producto";
             btnBorrarProductoxID.UseVisualStyleBackColor = false;
-      //      btnBorrarProductoxID.Click += btnBorrarProductoxID_Click;
+            btnBorrarProductoxID.Click += btnBorrarProductoxID_Click;
             // 
             // panel4
             // 
@@ -127,7 +127,7 @@
             txtIdVenta.Name = "txtIdVenta";
             txtIdVenta.Size = new Size(106, 23);
             txtIdVenta.TabIndex = 3;
-     //       txtIdVenta.KeyDown += txtAgregar_KeyDown;
+            txtIdVenta.KeyDown += txtAgregar_KeyDown;
             // 
             // lblProducto
             // 
@@ -145,7 +145,7 @@
             txtIdProducto.Name = "txtIdProducto";
             txtIdProducto.Size = new Size(106, 23);
             txtIdProducto.TabIndex = 2;
-     //       txtIdProducto.KeyDown += TextBox_KeyDown;
+            txtIdProducto.KeyDown += TextBox_KeyDown;
             // 
             // lblId
             // 
@@ -180,7 +180,7 @@
             btnLimpiarDatos.TabIndex = 10;
             btnLimpiarDatos.Text = "Limpiar Datos";
             btnLimpiarDatos.UseVisualStyleBackColor = false;
-     //       btnLimpiarDatos.Click += btnLimpiarDatos_Click;
+            btnLimpiarDatos.Click += btnLimpiarDatos_Click;
             // 
             // txtStock
             // 
@@ -188,7 +188,7 @@
             txtStock.Name = "txtStock";
             txtStock.Size = new Size(106, 23);
             txtStock.TabIndex = 1;
-      //      txtStock.KeyDown += TextBox_KeyDown;
+            txtStock.KeyDown += TextBox_KeyDown;
             // 
             // txtID
             // 
@@ -196,7 +196,7 @@
             txtID.Name = "txtID";
             txtID.Size = new Size(100, 23);
             txtID.TabIndex = 0;
-     //       txtID.KeyDown += txtID_KeyDown;
+            txtID.KeyDown += txtID_KeyDown;
             // 
             // btnAgregarProducto
             // 
@@ -211,7 +211,7 @@
             btnAgregarProducto.TabIndex = 7;
             btnAgregarProducto.Text = "Agregar";
             btnAgregarProducto.UseVisualStyleBackColor = false;
-     //       btnAgregarProducto.Click += btnAgregarProducto_Click;
+            btnAgregarProducto.Click += btnAgregarProducto_Click;
             // 
             // btnActualizaProductoxID
             // 
@@ -226,7 +226,7 @@
             btnActualizaProductoxID.TabIndex = 8;
             btnActualizaProductoxID.Text = "Actualizar Producto";
             btnActualizaProductoxID.UseVisualStyleBackColor = false;
-      //      btnActualizaProductoxID.Click += btnActualizaProductoxID_Click;
+            btnActualizaProductoxID.Click += btnActualizaProductoxID_Click;
             // 
             // panel3
             // 
@@ -254,7 +254,7 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(650, 235);
             dataGridView1.TabIndex = 0;
-     //       dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // btnClose
             // 
@@ -271,7 +271,7 @@
             btnClose.TabIndex = 11;
             btnClose.Text = "X";
             btnClose.UseVisualStyleBackColor = true;
-      //      btnClose.Click += btnClose_Click;
+            btnClose.Click += btnClose_Click;
             // 
             // btnBuscarProductoXiD
             // 
@@ -286,7 +286,7 @@
             btnBuscarProductoXiD.TabIndex = 6;
             btnBuscarProductoXiD.Text = "Buscar X ID";
             btnBuscarProductoXiD.UseVisualStyleBackColor = false;
-     //       btnBuscarProductoXiD.Click += btnBuscarProductoxID_Click;
+            btnBuscarProductoXiD.Click += btnBuscarProductoxID_Click;
             // 
             // lblTitulo
             // 

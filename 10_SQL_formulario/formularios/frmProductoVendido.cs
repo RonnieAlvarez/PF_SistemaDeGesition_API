@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SistemaDeGestion.models;
+using SistemaDeGestion.service;
 
 namespace SistemaGestionApp.formularios
 {
@@ -16,17 +18,18 @@ namespace SistemaGestionApp.formularios
         {
             InitializeComponent();
         }
-       private void frmProductoVendido_Load(object sender, EventArgs e)
+       private async void frmProductoVendido_Load(object sender, EventArgs e)
         {
             lblTitulo.Text = "LISTADO DE PRODUCTOS VENDIDOS";
-            //         obtenerDatos();
+            await Task.Delay(500);
+            obtenerDatos();
         }
-    /*    public void obtenerDatos()
+        public void obtenerDatos()
         {
             try
             {
                 dataGridView1.DataSource = null;
-                List<modelo.clsProductoVendido> lstProductos = ProductoVendidoData.ListarProductoVendido();
+                List<ProductoVendido> lstProductos = ProductoVendidoService.GetProductoVendidosVendidos();
                 dataGridView1.DataSource = lstProductos;
                 dataGridView1.AutoGenerateColumns = true;
             }
@@ -60,7 +63,7 @@ namespace SistemaGestionApp.formularios
                 else
                 {
                     int id = int.Parse(txtID.Text);
-                    modelo.clsProductoVendido ProductoObtenido = ProductoVendidoData.ObtenerProductoVendidoPorId(@id);
+                    ProductoVendido ProductoObtenido = ProductoVendidoService.GetProductoVendido(@id);
                     txtStock.Text = ProductoObtenido.Stock.ToString();
                     txtIdProducto.Text = ProductoObtenido.IdProducto.ToString();
                     txtIdVenta.Text = ProductoObtenido.IdVenta.ToString();
@@ -80,7 +83,7 @@ namespace SistemaGestionApp.formularios
                 {
                     int id = int.Parse(txtID.Text);
 
-                    if (ProductoVendidoData.BorraProductoVendidoPorId(@id))
+                    if (ProductoVendidoService.EliminarProductoVendidoPorId(@id))
                     {
                         limpiarDatos();
                         obtenerDatos();
@@ -111,12 +114,12 @@ namespace SistemaGestionApp.formularios
                 if (confirmacion == DialogResult.Yes)
                 {
                     int id = int.Parse(txtID.Text);
-                    modelo.clsProductoVendido ProductoActualizar = new(
-                       int.Parse(txtStock.Text),
-                       int.Parse(txtIdProducto.Text),
-                       int.Parse(txtIdVenta.Text)
-                    );
-                    if (ProductoVendidoData.UpdateProductoVendidoPorId(@id, ProductoActualizar))
+                    ProductoVendido ProductoActualizar = new ProductoVendido{
+                       Stock= int.Parse(txtStock.Text),
+                       IdProducto= int.Parse(txtIdProducto.Text),
+                       IdVenta= int.Parse(txtIdVenta.Text)
+                    };
+                    if (ProductoVendidoService.ActualizarProductoVendidoXId(ProductoActualizar, @id ))
                     {
                         obtenerDatos();
                         limpiarDatos();
@@ -169,12 +172,12 @@ namespace SistemaGestionApp.formularios
         {
             try
             {
-                modelo.clsProductoVendido ProductoNuevo = new(
-                   int.Parse(txtStock.Text),
-                   int.Parse(txtIdProducto.Text),
-                   int.Parse(txtIdVenta.Text)
-                );
-                if (ProductoVendidoData.AgregarProductoVendido(ProductoNuevo))
+                    ProductoVendido ProductoNuevo = new ProductoVendido{
+                    Stock=int.Parse(txtStock.Text),
+                    IdProducto=int.Parse(txtIdProducto.Text),
+                    IdVenta=int.Parse(txtIdVenta.Text)
+                    };
+                if (ProductoVendidoService.AgregarProductoVendido(ProductoNuevo))
                 {
                     obtenerDatos();
                     limpiarDatos();
@@ -204,7 +207,7 @@ namespace SistemaGestionApp.formularios
                 btnAgregarProducto.Focus();
             }
         }
-*/
+
    
     }
 }

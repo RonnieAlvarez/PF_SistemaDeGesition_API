@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using SistemaDeGestion.models;
+using SistemaDeGestion.service;
 
 namespace SistemaGestionApp.formularios
 {
@@ -16,17 +9,18 @@ namespace SistemaGestionApp.formularios
         {
             InitializeComponent();
         }
-        private void frmProductos_Load(object sender, EventArgs e)
+        private async void frmProductos_Load(object sender, EventArgs e)
         {
             lblTitulo.Text = "LISTADO DE PRODUCTOS";
-    //        obtenerDatos();
+            await Task.Delay(500);
+            obtenerDatos();
         }
-    /*    public void obtenerDatos()
+        public void obtenerDatos()
         {
             try
             {
                 dataGridView1.DataSource = null;
-                List<modelo.clsProducto> lstProductos = ProductoData.ListarProductos();
+                List<Producto> lstProductos = ProductoService.GetProductos();
                 dataGridView1.DataSource = lstProductos;
                 dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.Columns[2].DefaultCellStyle.Format = "N2";
@@ -62,7 +56,7 @@ namespace SistemaGestionApp.formularios
                 else
                 {
                     int id = int.Parse(txtID.Text);
-                    modelo.clsProducto ProductoObtenido = ProductoData.ObtenerProductoPorId(@id);
+                    Producto ProductoObtenido = ProductoService.GetProducto(@id);
                     txtDescripciones.Text = ProductoObtenido.Descripciones.ToString();
                     txtCosto.Text = ProductoObtenido.Costo.ToString("F2");
                     txtPrecioVenta.Text = ProductoObtenido.PrecioVenta.ToString("F2");
@@ -84,7 +78,7 @@ namespace SistemaGestionApp.formularios
                 {
                     int id = int.Parse(txtID.Text);
 
-                    if (ProductoData.BorraProductoPorId(@id))
+                    if (ProductoService.EliminarProductoPorId(@id))
                     {
                         limpiarDatos();
                         obtenerDatos();
@@ -118,14 +112,15 @@ namespace SistemaGestionApp.formularios
                 if (confirmacion == DialogResult.Yes)
                 {
                     int id = int.Parse(txtID.Text);
-                    modelo.clsProducto ProductoActualizar = new(
-                       txtDescripciones.Text,
-                       decimal.Parse(txtCosto.Text),
-                       decimal.Parse(txtPrecioVenta.Text),
-                       int.Parse(txtStock.Text),
-                       int.Parse(txtIdUsuario.Text)
-                    );
-                    if (ProductoData.UpdateProductoPorId(@id, ProductoActualizar))
+                    Producto ProductoActualizar = new Producto()
+                    {
+                        Descripciones = txtDescripciones.Text,
+                        Costo = decimal.Parse(txtCosto.Text),
+                        PrecioVenta = decimal.Parse(txtPrecioVenta.Text),
+                        Stock = int.Parse(txtStock.Text),
+                        IdUsuario = int.Parse(txtIdUsuario.Text)
+                    };
+                    if (ProductoService.ActualizarProductoXId(ProductoActualizar, @id))
                     {
                         obtenerDatos();
                         limpiarDatos();
@@ -182,14 +177,15 @@ namespace SistemaGestionApp.formularios
         {
             try
             {
-                modelo.clsProducto ProductoNuevo = new(
-                   txtDescripciones.Text,
-                   decimal.Parse(txtCosto.Text),
-                   decimal.Parse(txtPrecioVenta.Text),
-                   int.Parse(txtStock.Text),
-                   int.Parse(txtIdUsuario.Text)
-                );
-                if (ProductoData.AgregarProducto(ProductoNuevo))
+                Producto ProductoNuevo = new Producto
+                {
+                    Descripciones = txtDescripciones.Text,
+                    Costo = decimal.Parse(txtCosto.Text),
+                    PrecioVenta = decimal.Parse(txtPrecioVenta.Text),
+                    Stock = int.Parse(txtStock.Text),
+                    IdUsuario = int.Parse(txtIdUsuario.Text)
+                };
+                if (ProductoService.AgregarProducto(ProductoNuevo))
                 {
                     obtenerDatos();
                     limpiarDatos();
@@ -200,7 +196,7 @@ namespace SistemaGestionApp.formularios
             }
             catch
             {
-                MessageBox.Show("Error en tiempo de ejecución, intente más tarde", "Error de ejecución", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                MessageBox.Show("Faltan datos en el Producto, complete y reitente ", "Error de ejecución", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -218,6 +214,6 @@ namespace SistemaGestionApp.formularios
                 btnAgregarProducto.Focus();
             }
         }
-    */
+
     }
 }
