@@ -9,8 +9,6 @@
 
 ![10f07250-e4d2-4dc7-a145-bae04635e7a7](https://github.com/RonnieAlvarez/PF_SistemaDeGesition_API/assets/109872028/2a022365-312b-4414-8efa-e1cf1f429529)
 
-![45555a0f-f8a4-4e78-981e-8b162c1cc513](https://github.com/RonnieAlvarez/PF_SistemaDeGesition_API/assets/109872028/de09aac8-98d4-4ecc-8c88-73d33ebb8798)
-
 ![a7912053-b32d-418c-8335-edb8c9c10820](https://github.com/RonnieAlvarez/PF_SistemaDeGesition_API/assets/109872028/03b23b2b-b151-4a8d-aba5-795319507fd6)
 
 ![ae14705b-0f2c-4e17-b9e0-8e15b73950db](https://github.com/RonnieAlvarez/PF_SistemaDeGesition_API/assets/109872028/eca460ed-0836-4138-ace8-a0e6f3c87c3f)
