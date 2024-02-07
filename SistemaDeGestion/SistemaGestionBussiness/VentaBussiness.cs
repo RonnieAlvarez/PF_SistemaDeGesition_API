@@ -4,7 +4,7 @@ using SistemaDeGestion.models;
 
 namespace SistemaDeGestion.service
 {
-    public class VentaService
+    public class VentaBussiness
     {
         public static Ventum GetVenta(int id)
         {

@@ -20,7 +20,7 @@ namespace SistemaGestionApp.formularios
             try
             {
                 dataGridView1.DataSource = null;
-                List<Producto> lstProductos = ProductoService.GetProductos();
+                List<Producto> lstProductos = ProductoBussiness.GetProductos();
                 dataGridView1.DataSource = lstProductos;
                 dataGridView1.AutoGenerateColumns = true;
                 dataGridView1.Columns[2].DefaultCellStyle.Format = "N2";
@@ -56,7 +56,7 @@ namespace SistemaGestionApp.formularios
                 else
                 {
                     int id = int.Parse(txtID.Text);
-                    Producto ProductoObtenido = ProductoService.GetProducto(@id);
+                    Producto ProductoObtenido = ProductoBussiness.GetProducto(@id);
                     txtDescripciones.Text = ProductoObtenido.Descripciones.ToString();
                     txtCosto.Text = ProductoObtenido.Costo.ToString("F2");
                     txtPrecioVenta.Text = ProductoObtenido.PrecioVenta.ToString("F2");
@@ -78,7 +78,7 @@ namespace SistemaGestionApp.formularios
                 {
                     int id = int.Parse(txtID.Text);
 
-                    if (ProductoService.EliminarProductoPorId(@id))
+                    if (ProductoBussiness.EliminarProductoPorId(@id))
                     {
                         limpiarDatos();
                         obtenerDatos();
@@ -120,7 +120,7 @@ namespace SistemaGestionApp.formularios
                         Stock = int.Parse(txtStock.Text),
                         IdUsuario = int.Parse(txtIdUsuario.Text)
                     };
-                    if (ProductoService.ActualizarProductoXId(ProductoActualizar, @id))
+                    if (ProductoBussiness.ActualizarProductoXId(ProductoActualizar, @id))
                     {
                         obtenerDatos();
                         limpiarDatos();
@@ -185,7 +185,7 @@ namespace SistemaGestionApp.formularios
                     Stock = int.Parse(txtStock.Text),
                     IdUsuario = int.Parse(txtIdUsuario.Text)
                 };
-                if (ProductoService.AgregarProducto(ProductoNuevo))
+                if (ProductoBussiness.AgregarProducto(ProductoNuevo))
                 {
                     obtenerDatos();
                     limpiarDatos();

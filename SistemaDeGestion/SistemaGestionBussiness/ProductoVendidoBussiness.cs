@@ -4,7 +4,7 @@ using SistemaDeGestion.models;
 
 namespace SistemaDeGestion.service
 {
-    public class ProductoVendidoService
+    public class ProductoVendidoBussiness
     {
         public static ProductoVendido GetProductoVendido(int id)
         {

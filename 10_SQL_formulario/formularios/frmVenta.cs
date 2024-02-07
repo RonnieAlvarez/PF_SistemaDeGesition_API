@@ -30,7 +30,7 @@ namespace SistemaGestionApp.formularios
             try
             {
                 dataGridView1.DataSource = null;
-                List<Ventum> lstVentas = VentaService.GetVentas();
+                List<Ventum> lstVentas = VentaBussiness.GetVentas();
                 dataGridView1.DataSource = lstVentas;
                 dataGridView1.AutoGenerateColumns = true;
             }
@@ -58,7 +58,7 @@ namespace SistemaGestionApp.formularios
                 else
                 {
                     int id = int.Parse(txtID.Text);
-                    Ventum VentaObtenido = VentaService.GetVenta(@id);
+                    Ventum VentaObtenido = VentaBussiness.GetVenta(@id);
                     txtComentarios.Text = VentaObtenido.Comentarios.ToString();
                     txtIdUsuario.Text = VentaObtenido.IdUsuario.ToString();
                 }
@@ -77,7 +77,7 @@ namespace SistemaGestionApp.formularios
                 {
                     int id = int.Parse(txtID.Text);
 
-                    if (VentaService.EliminarVentaPorId(@id))
+                    if (VentaBussiness.EliminarVentaPorId(@id))
                     {
                         limpiarDatos();
                         obtenerDatos();
@@ -111,7 +111,7 @@ namespace SistemaGestionApp.formularios
                         Comentarios = txtComentarios.Text,
                         IdUsuario = int.Parse(txtIdUsuario.Text)
                     };
-                    if (VentaService.ActualizarVentaXId(VentaActualizar,@id))
+                    if (VentaBussiness.ActualizarVentaXId(VentaActualizar,@id))
                     {
                         obtenerDatos();
                         limpiarDatos();
@@ -151,7 +151,7 @@ namespace SistemaGestionApp.formularios
                     Comentarios=txtComentarios.Text,
                     IdUsuario=int.Parse(txtIdUsuario.Text)
                 };
-                if (VentaService.AgregarVenta(VentaNueva))
+                if (VentaBussiness.AgregarVenta(VentaNueva))
                 {
                     obtenerDatos();
                     limpiarDatos();

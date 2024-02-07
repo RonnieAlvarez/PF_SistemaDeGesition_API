@@ -5,12 +5,12 @@ using SistemaDeGestion.models;
 
 namespace SistemaDeGestion.service
 {
-    public static class UsuarioService
+    public static class UsuarioBussiness
     {
         private static string stringConnection;
-        static UsuarioService()
+        static UsuarioBussiness()
         {
-            UsuarioService.stringConnection = @"Server=localhost;Database=coderhouse;Trusted_Connection=True;";
+            UsuarioBussiness.stringConnection = @"Server=localhost;Database=coderhouse;Trusted_Connection=True;";
         }
         public static Usuario GetUsuario(int id)
         {

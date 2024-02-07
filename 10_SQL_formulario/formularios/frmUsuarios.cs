@@ -30,7 +30,7 @@ namespace SistemaGestionApp.formularios
             try
             {
                 dataGridView1.DataSource = null;
-                List<Usuario> lstUsuarios = UsuarioService.GetUsuarios();
+                List<Usuario> lstUsuarios = UsuarioBussiness.GetUsuarios();
                 dataGridView1.DataSource = lstUsuarios;
                 dataGridView1.AutoGenerateColumns = true;
                 
@@ -65,7 +65,7 @@ namespace SistemaGestionApp.formularios
                 else
                 {
                     int id = int.Parse(txtID.Text);
-                    Usuario usuarioObtenido = UsuarioService.GetUsuario(@id);
+                    Usuario usuarioObtenido = UsuarioBussiness.GetUsuario(@id);
                     txtNombre.Text = usuarioObtenido.Nombre.ToString();
                     txtApellido.Text = usuarioObtenido.Apellido.ToString();
                     txtNombreUsuario.Text = usuarioObtenido.NombreUsuario.ToString();
@@ -87,7 +87,7 @@ namespace SistemaGestionApp.formularios
                 {
                     int id = int.Parse(txtID.Text);
 
-                    if (UsuarioService.EliminarUsuarioPorId(@id))
+                    if (UsuarioBussiness.EliminarUsuarioPorId(@id))
                     {
                         limpiarDatos();
                         obtenerDatos();
@@ -131,7 +131,7 @@ namespace SistemaGestionApp.formularios
                         Mail = txtEmail.Text
                     };
                     
-                    if (UsuarioService.ActualizarUsuarioXId(usuarioActualizar, @id))
+                    if (UsuarioBussiness.ActualizarUsuarioXId(usuarioActualizar, @id))
                     {
                         obtenerDatos();
                         limpiarDatos();
@@ -186,7 +186,7 @@ namespace SistemaGestionApp.formularios
                 Mail = txtEmail.Text
             };
 
-            if (UsuarioService.AgregarUsuario(usuarioNuevo))
+            if (UsuarioBussiness.AgregarUsuario(usuarioNuevo))
             {
                 obtenerDatos();
                 limpiarDatos();

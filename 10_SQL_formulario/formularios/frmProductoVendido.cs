@@ -29,7 +29,7 @@ namespace SistemaGestionApp.formularios
             try
             {
                 dataGridView1.DataSource = null;
-                List<ProductoVendido> lstProductos = ProductoVendidoService.GetProductoVendidosVendidos();
+                List<ProductoVendido> lstProductos = ProductoVendidoBussiness.GetProductoVendidosVendidos();
                 dataGridView1.DataSource = lstProductos;
                 dataGridView1.AutoGenerateColumns = true;
             }
@@ -63,7 +63,7 @@ namespace SistemaGestionApp.formularios
                 else
                 {
                     int id = int.Parse(txtID.Text);
-                    ProductoVendido ProductoObtenido = ProductoVendidoService.GetProductoVendido(@id);
+                    ProductoVendido ProductoObtenido = ProductoVendidoBussiness.GetProductoVendido(@id);
                     txtStock.Text = ProductoObtenido.Stock.ToString();
                     txtIdProducto.Text = ProductoObtenido.IdProducto.ToString();
                     txtIdVenta.Text = ProductoObtenido.IdVenta.ToString();
@@ -83,7 +83,7 @@ namespace SistemaGestionApp.formularios
                 {
                     int id = int.Parse(txtID.Text);
 
-                    if (ProductoVendidoService.EliminarProductoVendidoPorId(@id))
+                    if (ProductoVendidoBussiness.EliminarProductoVendidoPorId(@id))
                     {
                         limpiarDatos();
                         obtenerDatos();
@@ -119,7 +119,7 @@ namespace SistemaGestionApp.formularios
                        IdProducto= int.Parse(txtIdProducto.Text),
                        IdVenta= int.Parse(txtIdVenta.Text)
                     };
-                    if (ProductoVendidoService.ActualizarProductoVendidoXId(ProductoActualizar, @id ))
+                    if (ProductoVendidoBussiness.ActualizarProductoVendidoXId(ProductoActualizar, @id ))
                     {
                         obtenerDatos();
                         limpiarDatos();
@@ -177,7 +177,7 @@ namespace SistemaGestionApp.formularios
                     IdProducto=int.Parse(txtIdProducto.Text),
                     IdVenta=int.Parse(txtIdVenta.Text)
                     };
-                if (ProductoVendidoService.AgregarProductoVendido(ProductoNuevo))
+                if (ProductoVendidoBussiness.AgregarProductoVendido(ProductoNuevo))
                 {
                     obtenerDatos();
                     limpiarDatos();

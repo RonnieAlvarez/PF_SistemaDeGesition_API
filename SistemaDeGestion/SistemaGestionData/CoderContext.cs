@@ -21,7 +21,6 @@ namespace SistemaDeGestion.database
         public virtual DbSet<ProductoVendido> ProductoVendidos { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
         public virtual DbSet<Ventum> Venta { get; set; } = null!;
-        public virtual DbSet<ViewProductoVendido> ViewProductoVendidos { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -93,17 +92,6 @@ namespace SistemaDeGestion.database
                     .HasForeignKey(d => d.IdUsuario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Venta_Usuario");
-            });
-
-            modelBuilder.Entity<ViewProductoVendido>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToView("View_ProductoVendido");
-
-                entity.Property(e => e.Costo).HasColumnType("money");
-
-                entity.Property(e => e.Descripciones).IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);
